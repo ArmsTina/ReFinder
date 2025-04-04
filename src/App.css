@@ -1,0 +1,8 @@
+html,
+body,
+#root {
+  width: 300px;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
