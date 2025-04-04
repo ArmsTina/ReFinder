@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Working Title",
+  "version": "1.0",
+  "description": "This is a React Chrome Extension",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "vite.svg"
+  },
+  "permissions": ["storage"]
+}
