@@ -10,7 +10,7 @@ function Header() {
     <div className="header">
       <Navbar bg="dark" variant="dark">
         <Container fluid>
-          <Navbar.Brand href="#home">Suggestly</Navbar.Brand>
+          <Navbar.Brand href="#home">ReFinder</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
