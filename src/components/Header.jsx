@@ -3,21 +3,26 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faLanguage } from "@fortawesome/free-solid-svg-icons";
 import { NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setDarkMode } from "../store";
+import { setDarkMode, setLanguage } from "../store";
 
 function Header() {
   // To set darkmode
   let darkMode = useSelector((state) => state.darkMode);
+  let language = useSelector((state) => state.language);
   let dispatch = useDispatch();
 
   function toggleDarkMode() {
     dispatch(setDarkMode());
   }
 
-  const navDropdownTitle = <FontAwesomeIcon icon={faGear} />;
+  function toggleLanguage(targetLang) {
+    dispatch(setLanguage(targetLang));
+  }
+
+  const navDropdownTitle = <FontAwesomeIcon icon={faBars} />;
 
   return (
     <div className="header">
@@ -48,6 +53,15 @@ function Header() {
                     <FontAwesomeIcon icon={faMoon} /> Dark Mode
                   </span>
                 )}
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => {
+                  toggleLanguage(language == "kr" ? "en" : "kr");
+                }}
+              >
+                <span>
+                  <FontAwesomeIcon icon={faLanguage} /> Toggle Language
+                </span>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
