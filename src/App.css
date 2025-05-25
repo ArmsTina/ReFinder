@@ -6,3 +6,14 @@ body,
   margin: 0;
   padding: 0;
 }
+
+a.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-item:active {
+  background-color: inherit !important;
+}
+
+.dropdown-light .dropdown-item:active {
+  color: black;
+}

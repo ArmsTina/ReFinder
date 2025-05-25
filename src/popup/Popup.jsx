@@ -3,8 +3,18 @@ import "../styles/Popup.css";
 import { Container, Row, Col, InputGroup, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { setDarkMode } from "../store";
 
 function Popup() {
+  // To set darkmode
+  let darkMode = useSelector((state) => state.darkMode);
+  let dispatch = useDispatch();
+
+  function toggleDarkMode() {
+    dispatch(setDarkMode());
+  }
+
   const [searchValue, setSearchValue] = useState("");
   const [barFocus, setBarFocus] = useState(false);
   const [search, setSearch] = useState(false);
@@ -22,7 +32,11 @@ function Popup() {
   }
 
   return (
-    <Container className="d-flex justify-content-center align-items-center text-center">
+    <Container
+      className={`d-flex justify-content-center align-items-center text-center ${
+        darkMode ? "bg-dark text-white" : "bg-white text-dark"
+      }`}
+    >
       <Row className="gap-3">
         <Col xs={12}>
           {showButton && <h3>Perfect keyword is ready!</h3>}
